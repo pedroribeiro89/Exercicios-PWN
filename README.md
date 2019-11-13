@@ -7,3 +7,9 @@
 ## Exercicio 2
 	Fazer requisicoes http para adicionar usuarios(POST), deletar(DELETE), listar(GET)
 	foi usado o express para criar a aplicacao
+	
+## Exercicio 3
+	Armazenar dados usando mongodb, sqlite e knex
+	
+## Exercicio 4
+	Autenticacao com OAuth com passport.js

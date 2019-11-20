@@ -1,0 +1,43 @@
+<h1>Exercicio 5 -Chat com websocket</h1>
+
+<ul id="messages"></ul>
+
+<form id="comment-form">
+  Author:<br>
+  <input id="author" type="text" name="author" value="">
+  <br>
+  Comentario:<br>
+  <input id="comment" type="text" name="comment" value="">
+  <br><br>
+  <input type="submit" value="Submit">
+</form> 
+
+<script src="/socket.io/socket.io.js"></script>
+<script type="text/javascript">
+    const socket = io('http://localhost:3000');
+
+	//ENVIAR MENSAGEM
+	const messageForm = document.getElementById('comment-form');
+	messageForm.onsubmit = function(event) {
+		event.preventDefault();
+		const author = document.getElementById('author').value
+		const comment = document.getElementById('comment').value
+		const data = {author, comment};
+
+		renderMessage(data);
+		socket.emit('clientMsg', data);
+	}
+
+	//RECEBER MENSAGEM
+	socket.on('serverMsg', (serverMsg) => renderMessage(serverMsg));
+
+	//RENDERIZAR MENSAGEM
+	const messageList = document.getElementById('messages');
+	const renderMessage = (message) => {
+		const element = document.createElement('li');
+		element.innerHTML = `<strong>${message.author}: </strong> ${message.comment}`;
+		messageList.append(element);
+	}
+
+
+</script>

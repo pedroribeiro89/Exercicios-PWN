@@ -13,3 +13,6 @@
 	
 ## Exercicio 4
 	Autenticacao com OAuth com passport.js
+
+## Exercicio 5
+	Chat usando websocket com socket.io

@@ -16,3 +16,6 @@
 
 ## Exercicio 5
 	Chat usando websocket com socket.io
+	
+## Exercicio 6
+	TDD mocha + chai
